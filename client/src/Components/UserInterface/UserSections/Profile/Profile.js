@@ -6,8 +6,8 @@ import UserNavBar from "../../UserNavBar/UserNavBar";
 import "../../UserInterface.scss";
 import "./Profile.scss";
 import { RiImageEditFill } from "react-icons/ri";
-import toastr from "toastr";
 import loadingImg from "./loading.gif";
+import Swal from 'sweetalert2'
 
 const initialState = {
   firstName: "",
@@ -43,16 +43,18 @@ const Profile = () => {
           success: "",
         });
       } else if (file.size > 1024 * 1024) {
-        toastr["error"](
-          "Please make sure the file size is 1024 * 1024!",
-          "Size too large!"
-        );
+        Swal.fire(
+          'Size too large!',
+          'Please make sure the file size is 1024 * 1024!',
+          'error'
+        )
         setData({ ...data, err: "Size too large.", success: "" });
       } else if (file.type !== "image/jpeg" && file.type !== "image/png") {
-        toastr["error"](
-          "We do not support this file format, make sure it is jpeg or png format!",
-          "Wrong Format!"
-        );
+        Swal.fire(
+          'Wrong Format!',
+          'We do not support this file format, make sure it is jpeg or png format!',
+          'error'
+        )
         setData({ ...data, err: "File format is incorrect.", success: "" });
       } else {
         let formData = new FormData();
@@ -74,23 +76,6 @@ const Profile = () => {
   };
 
   const updateInfor = () => {
-    toastr.options = {
-      closeButton: true,
-      debug: true,
-      newestOnTop: false,
-      progressBar: true,
-      positionClass: "toast-top-center",
-      preventDuplicates: true,
-      onclick: null,
-      showDuration: "300",
-      hideDuration: "1000",
-      timeOut: "5000",
-      extendedTimeOut: "1000",
-      showEasing: "swing",
-      hideEasing: "linear",
-      showMethod: "fadeIn",
-      hideMethod: "fadeOut",
-    };
     try {
       dispatch(
         updateUser({
@@ -100,15 +85,17 @@ const Profile = () => {
           avatar: avatar ? avatar : user?.result?.avatar,
         })
       );
-      toastr["success"](
-        "Your personal information has now been updated!",
-        "Information Updated!"
-      );
+      Swal.fire(
+        'Information Updated!',
+        'Your personal information has now been updated!',
+        'success'
+      )
     } catch (err) {
-      toastr["error"](
-        "There was an issue updating your personal information, please try again later!",
-        "Update not possible!"
-      );
+      Swal.fire(
+        'Update not possible!',
+        'There was an issue updating your personal information, please try again later!',
+        'error'
+      )
       setData({ ...data, err: err.response.data.msg, success: "" });
     }
   };
@@ -127,41 +114,26 @@ const Profile = () => {
   });
 
   const updatePassword = async () => {
-    toastr.options = {
-      closeButton: true,
-      debug: true,
-      newestOnTop: false,
-      progressBar: true,
-      positionClass: "toast-top-center",
-      preventDuplicates: true,
-      onclick: null,
-      showDuration: "300",
-      hideDuration: "1000",
-      timeOut: "5000",
-      extendedTimeOut: "1000",
-      showEasing: "swing",
-      hideEasing: "linear",
-      showMethod: "fadeIn",
-      hideMethod: "fadeOut",
-    };
-
     if (password !== cf_password) {
-      toastr["error"](
-        "Password is not the same as Confirm Password, please try again!",
-        "No Match!"
-      );
+      Swal.fire(
+        'No Match!',
+        'Password is not the same as Confirm Password, please try again!',
+        'error'
+      )
     } else {
       const res = await axios.post(`/api/user/reset/${hash}`, { password });
       if (res) {
-        toastr["success"](
-          "Your password is now updated, Next time sign in with your new Password!",
-          "Password Changed!"
-        );
+        Swal.fire(
+          'Password Changed!',
+          'Your password is now updated, Next time sign in with your new Password!',
+          'success'
+        )
       } else {
-        toastr["error"](
-          "There was an issue updating your password, please try again later!",
-          "Update not possible!"
-        );
+        Swal.fire(
+          'Update not possible!',
+          'There was an issue updating your password, please try again later!',
+          'error'
+        )
       }
     }
   };

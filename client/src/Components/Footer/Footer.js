@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Footer.scss";
-import toastr from "toastr";
 import ReactStoreBadges from "react-store-badges";
 import { IoLocationSharp } from "react-icons/io5";
 import { CgPhone } from "react-icons/cg";
@@ -14,6 +13,7 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 import logo from "./freebie-logo.png"
+import Swal from 'sweetalert2'
 
 
 const Footer = () => {
@@ -21,27 +21,18 @@ const Footer = () => {
   const signNewsletter = (e) => {
     e.preventDefault()
     const { email } = e.target.elements;
-    toastr.options = {
-      "closeButton": true,
-      "debug": false,
-      "newestOnTop": false,
-      "progressBar": true,
-      "positionClass": "toast-bottom-center",
-      "preventDuplicates": true,
-      "onclick": null,
-      "showDuration": "300",
-      "hideDuration": "1000",
-      "timeOut": "5000",
-      "extendedTimeOut": "1000",
-      "showEasing": "swing",
-      "hideEasing": "linear",
-      "showMethod": "fadeIn",
-      "hideMethod": "fadeOut"
-    }
     if (email.value) {
-      toastr["success"]("For Subscribing to our Newsletter!", "Thank You!")
+      Swal.fire(
+        'Thank You!',
+        'For Subscribing to our Newsletter!',
+        'success'
+      )
     } else {
-      toastr["error"]("Please try again, with a valid email!", "Something went wrong")
+      Swal.fire(
+        'Something went wrong!',
+        'Please try again, with a valid email!',
+        'error'
+      )
     }
   }
 

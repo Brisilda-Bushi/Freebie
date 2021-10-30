@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import toastr from "toastr";
 import { useHistory } from "react-router-dom";
 import "./ForgotPassword.scss";
+import Swal from 'sweetalert2'
 
 const initialState = {
   password: "",
@@ -24,42 +24,28 @@ function ResetPassword(props) {
 
   const handleResetPass = async (e) => {
     e.preventDefault();
-    toastr.options = {
-      closeButton: true,
-      debug: true,
-      newestOnTop: false,
-      progressBar: true,
-      positionClass: "toast-top-center",
-      preventDuplicates: true,
-      onclick: null,
-      showDuration: "300",
-      hideDuration: "1000",
-      timeOut: "5000",
-      extendedTimeOut: "1000",
-      showEasing: "swing",
-      hideEasing: "linear",
-      showMethod: "fadeIn",
-      hideMethod: "fadeOut",
-    };
 
     if (password !== cf_password) {
-      toastr["error"](
-        "Password is not the same as Confirm Password, please try again!",
-        "No Match!"
-      );
+      Swal.fire(
+        'No Match!',
+        'Password is not the same as Confirm Password, please try again!',
+        'error'
+      )
     } else {
       const res = await axios.post(`/api/user/reset/${hash}`, { password });
       if (res) {
-        toastr["success"](
-          "Your password is now updated, You can now sign in with your new Password!",
-          "Password Changed!"
-        );
+        Swal.fire(
+          'Password Changed!',
+          'Your password is now updated, You can now sign in with your new Password!',
+          'success'
+        )
         history.push("/auth");
       } else {
-        toastr["error"](
-          "There was an issue resetting your password, please try again later!",
-          "Reset not possible!"
-        );
+        Swal.fire(
+          'Reset not possible!',
+          'There was an issue resetting your password, please try again later!',
+          'error'
+        )
       }
     }
   };

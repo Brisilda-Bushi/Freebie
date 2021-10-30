@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import toastr from "toastr";
 import "./ForgotPassword.scss";
+import Swal from 'sweetalert2'
 
 const initialState = {
   email: "",
@@ -19,39 +19,23 @@ function ForgotPassword() {
 
   const forgotPassword = (e) => {
     e.preventDefault();
-    toastr.options = {
-      closeButton: true,
-      debug: true,
-      newestOnTop: false,
-      progressBar: true,
-      positionClass: "toast-top-center",
-      preventDuplicates: true,
-      onclick: null,
-      showDuration: "300",
-      hideDuration: "1000",
-      timeOut: "5000",
-      extendedTimeOut: "1000",
-      showEasing: "swing",
-      hideEasing: "linear",
-      showMethod: "fadeIn",
-      hideMethod: "fadeOut",
-    };
-
 
  // const res = axios.post("http://localhost:4000/api/user/forgot", { email });
     const res = axios.post("/api/user/forgot", { email });
     e.target.reset();
     if (res) {
-      toastr["success"](
-        "We have sent a password recover instructions to your email!",
-        "Check your email!"
-      );
+      Swal.fire(
+      'Check your email!',
+      'We have sent a password recover instructions to your email!',
+      'success'
+    )
       console.log("Email has been sent");
     } else {
-      toastr["error"](
-        "There was an issue resetting your password, please try again later!",
-        "Reset not possible!"
-      );
+      Swal.fire(
+        'Reset not possible!',
+        'There was an issue resetting your password, please try again later!',
+        'error'
+      )
       console.log("FAILURE");
     }
   };

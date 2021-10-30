@@ -29,6 +29,7 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",
     "sass": "^1.39.2",
+    "sweetalert2": "^11.1.9",
     "swiper": "^6.7.1",
     "toastr": "^2.1.4",
     "web-vitals": "^1.0.1"
