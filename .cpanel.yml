@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/brisilda/repositories/
+    - export DEPLOYPATH=/home/brisilda/repositories/Frontend/Freebie
     - /bin/cp -r * $DEPLOYPATH
