@@ -2,7 +2,7 @@ Final project of one year Full-stack Web Development Course!
 
 <h2>Freebie</h2>
 
-<h3>You can check the Website Live Demo <a href="https://brah-freebie.herokuapp.com/home">here</a></h3>
+<h3>You can check the Website Live Demo <a href="https://freebie-b8v3.onrender.com">here</a></h3>
 <h3>Also you can check our final presentation <a href="https://www.canva.com/design/DAEsyG1tTLA/XGL_2IsrMdlZj4O6lW2Twg/view?utm_content=DAEsyG1tTLA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">here</a></h3>
 
 ***Front-End***
