@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.47601494.chunk.css",
+    "main.js": "/static/js/main.612e2731.chunk.js",
+    "main.js.map": "/static/js/main.612e2731.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.3b525264.js",
+    "runtime-main.js.map": "/static/js/runtime-main.3b525264.js.map",
+    "static/css/2.4128b980.chunk.css": "/static/css/2.4128b980.chunk.css",
+    "static/js/2.d2f007bc.chunk.js": "/static/js/2.d2f007bc.chunk.js",
+    "static/js/2.d2f007bc.chunk.js.map": "/static/js/2.d2f007bc.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.4128b980.chunk.css.map": "/static/css/2.4128b980.chunk.css.map",
+    "static/css/main.47601494.chunk.css.map": "/static/css/main.47601494.chunk.css.map",
+    "static/js/2.d2f007bc.chunk.js.LICENSE.txt": "/static/js/2.d2f007bc.chunk.js.LICENSE.txt",
+    "static/media/error.9c7b3499.gif": "/static/media/error.9c7b3499.gif",
+    "static/media/freebie-logo.5de695db.png": "/static/media/freebie-logo.5de695db.png",
+    "static/media/Contact.scss": "/static/media/freebieLocation.3fbb4d77.png",
+    "static/media/Header.scss": "/static/media/hero-image.6c54c593.jpg",
+    "static/media/ForgotPassword.scss": "/static/media/laura-davidson-QBAH4IldaZY-unsplash-3.e6d4fce9.jpg",
+    "static/media/loading.ccd02cc5.gif": "/static/media/loading.ccd02cc5.gif",
+    "static/media/AuthForm.scss": "/static/media/random-image.e6d4fce9.jpg",
+    "static/media/success.87363dc8.gif": "/static/media/success.87363dc8.gif",
+    "static/media/Process.scss": "/static/media/typing.022a8140.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3b525264.js",
+    "static/css/2.4128b980.chunk.css",
+    "static/js/2.d2f007bc.chunk.js",
+    "static/css/main.47601494.chunk.css",
+    "static/js/main.612e2731.chunk.js"
+  ]
+}
